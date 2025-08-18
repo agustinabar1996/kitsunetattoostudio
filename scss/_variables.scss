@@ -1,0 +1,19 @@
+/* ===== Variables base ===== */
+$color-bg: #111;
+$color-text: #fff;
+$color-header-bg: #000;
+$color-brand: #e94bd2;  /* fondo del menú */
+
+$rosa-1: #D25AB8;       /* botones artista */
+$rosa-1-dark: #a2428e;
+$rosa-2: #e754e7;       /* botón comprar */
+$rosa-2-dark: #b2469c;
+
+/* Breakpoints */
+$bp-sm: 600px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+
+/* Mixins */
+@mixin respond-max($bp) { @media (max-width: $bp) { @content; } }
+@mixin respond-min($bp) { @media (min-width: $bp) { @content; } }

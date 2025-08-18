@@ -1,0 +1,22 @@
+/* ===== Footer ===== */
+footer {
+  background-color: $color-header-bg; // negro, igual que el header
+  color: $color-text; // blanco
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  a {
+    color: $rosa-1;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      color: $rosa-1-dark;
+    }
+  }
+}

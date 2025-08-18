@@ -1,0 +1,23 @@
+/* ===== Galería ===== */
+.galeria {
+  display: grid;
+  grid-template-columns: 1fr; /* móvil */
+  gap: 20px;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 20px;
+
+  img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.5);
+    transition: transform .3s ease;
+
+    &:hover { transform: scale(1.05); }
+  }
+}
+
+@media (min-width: $bp-sm)  { .galeria { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: $bp-lg)  { .galeria { grid-template-columns: repeat(3, 1fr); } }

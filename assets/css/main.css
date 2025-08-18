@@ -1,0 +1,385 @@
+@charset "UTF-8";
+/* ===== Variables base ===== */
+/* fondo del menú */
+/* botones artista */
+/* botón comprar */
+/* Breakpoints */
+/* Mixins */
+/* ===== Base mínima para probar compilación ===== */
+body {
+  background: #111;
+  color: #fff;
+  margin: 0;
+}
+
+/* ======== ESTILO GENERAL ======== */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+main h1, main h2 {
+  text-align: center;
+}
+
+main {
+  background-color: #111;
+  padding: 40px 20px;
+}
+
+/* ======== HEADER ======== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #000;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 20px;
+  height: auto;
+  box-sizing: border-box;
+}
+
+header img {
+  height: 32px;
+  width: auto;
+}
+
+header h1 {
+  font-size: 1.35rem;
+  white-space: nowrap;
+  margin: 0;
+}
+
+/* ======== NAV ======== */
+nav {
+  margin-left: auto;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* clave para menú horizontal */
+  gap: 0;
+  background: #e94bd2;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+nav ul li a {
+  display: block;
+  padding: 8px 14px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  line-height: 1;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  nav {
+    margin-left: 0;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  nav ul li a {
+    padding: 10px 12px;
+  }
+}
+.artista {
+  display: flex;
+  align-items: flex-start; /* texto arranca arriba */
+  gap: 24px;
+  max-width: 1000px; /* ancho controlado como en el video */
+  margin: 24px auto; /* centrado del bloque, no del contenido */
+  background-color: #222;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.artista img {
+  width: 280px; /* tamaño consistente */
+  height: auto;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.artista div {
+  display: flex; /* ← convierte la columna de texto en flex */
+  flex-direction: column; /* ← título, párrafo y botón en columna */
+  align-items: flex-start; /* ← alinea todo a la izquierda */
+  text-align: left; /* ← refuerzo de alineación de texto */
+}
+
+.artista h2 {
+  margin: 0 0 8px 0;
+  text-align: left; /* ← título alineado a la izquierda */
+}
+
+.artista p {
+  margin: 0 0 12px 0;
+}
+
+.artista button {
+  margin-top: 4px;
+  padding: 10px 16px;
+  background-color: #D25AB8; /* rosa original */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.artista button:hover {
+  background-color: #a2428e; /* rosa más oscuro al pasar el mouse */
+  transform: translateY(-1px);
+}
+
+/* En pantallas chicas, apilar imagen y texto */
+@media (max-width: 768px) {
+  .artista {
+    flex-direction: column;
+    align-items: center;
+  }
+  .artista div {
+    width: 100%;
+  }
+}
+.galeria {
+  display: grid;
+  grid-template-columns: 1fr; /* móvil: 1 columna */
+  gap: 20px;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+@media (min-width: 600px) {
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+  } /* tablet */
+}
+@media (min-width: 1024px) {
+  .galeria {
+    grid-template-columns: repeat(3, 1fr);
+  } /* desktop */
+}
+.galeria img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+}
+
+.productos {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
+.producto {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  background-color: #1f1f1f;
+  border-radius: 12px;
+  position: relative;
+}
+
+.producto img {
+  width: 220px; /* imagen más grande y consistente */
+  height: auto;
+  border-radius: 10px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  flex: 1;
+  color: white;
+}
+
+.producto h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.25em;
+}
+
+.producto p {
+  margin: 0;
+  font-size: 1em;
+}
+
+/* Botón estilizado (evita que se vea “azul subrayado”) */
+.boton-comprar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #e754e7;
+  color: #fff !important;
+  text-decoration: none !important;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.boton-comprar:hover {
+  background-color: #b2469c;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .producto {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 64px;
+  }
+  .producto img {
+    width: 100%;
+    max-width: 420px;
+  }
+}
+/* Banner full ancho sin scroll horizontal */
+.banner {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==== Animación: revelar hacia arriba (cards .artista) ==== */
+.artista {
+  opacity: 0; /* estado inicial: invisible */
+  transform: translateY(28px); /* un poco más abajo */
+  transition: opacity 600ms ease, transform 600ms ease;
+  will-change: opacity, transform;
+  /* retraso escalonado opcional que setearemos por JS */
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* Cuando la card entra al viewport se activa esta clase */
+.artista.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respeto de accesibilidad: usuarios que prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .artista {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+/* ===== Nosotros: layout 2 columnas (texto + imagen) ===== */
+.sobre-nosotros {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* texto un poco más ancho */
+  align-items: stretch;
+  width: 100%; /* ocupa todo el ancho de la pantalla */
+  margin: 24px 0 48px;
+  border-radius: 16px;
+  overflow: hidden; /* redondeo también para la imagen */
+}
+
+/* Columna de texto (panel rosa) */
+.sobre-nosotros .texto {
+  background: #f4a0cf; /* rosa claro del boceto */
+  color: #111;
+  padding: 32px 6vw; /* respiración fluida con vw */
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+/* Columna de imagen a la derecha */
+.sobre-nosotros .imagen {
+  position: relative;
+}
+
+.sobre-nosotros .imagen img {
+  display: block;
+  width: 100%;
+  height: 100%; /* llena la altura del bloque */
+  object-fit: cover; /* recorte suave sin deformar */
+}
+
+/* Responsive: en móvil apilar y evitar recorte de alto */
+@media (max-width: 900px) {
+  .sobre-nosotros {
+    grid-template-columns: 1fr;
+    border-radius: 12px;
+  }
+  .sobre-nosotros .imagen {
+    order: -1; /* imagen arriba, texto debajo */
+  }
+  .sobre-nosotros .imagen img {
+    height: auto; /* sin recorte vertical en móvil */
+  }
+}
+/* Centrar contenido dentro del panel rosa (Nosotros) */
+.sobre-nosotros .texto {
+  background: #f4a0cf;
+  color: #111;
+  padding: 32px 6vw;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  /* ↓↓↓ centra el contenido en el panel ↓↓↓ */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centro vertical */
+}
+
+/* El bloque de párrafos queda centrado horizontalmente,
+   pero el texto sigue alineado a la izquierda */
+.sobre-nosotros .texto p {
+  max-width: 62ch; /* ancho cómodo de lectura */
+  margin: 0 auto 1rem; /* centra el bloque de texto */
+  text-align: left; /* mantiene las líneas a la izquierda */
+}
+
+/*# sourceMappingURL=main.css.map */

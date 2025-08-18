@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tatuadores - Kitsune Tattoo</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+  <header>
+    <img src="assets/img/logo.jpg" alt="Logo Kitsune" width="50">
+  <h1>Kitsune Tattoo Studio</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="tatuadores.html">Tatuadores</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="merch.html">Merch</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Muestrario de Tatuajes y artistas</h1>
+
+    <!-- Brando -->
+    <section class="artista">
+      <img src="assets/img/brandotattoo.png" alt="Tatuajes de Brando" width="250" />
+      <div>
+        <h2>Brando Chiesa</h2>
+        <p>Es un maestro del estilo anime japonés a color. con trazas de new school y neo tradicional, aunque su estética predominante es el pastel goth</p>
+        <button>Tatuarme con Brando</button>
+      </div>
+    </section>
+
+    <!-- Laura -->
+    <section class="artista">
+      <img src="assets/img/lauratattoo.png" alt="Tatuajes de Laura" width="250" />
+      <div>
+        <h2>Laura Anunnaki</h2>
+        <p>Su estilo se caracteriza por ser kawaii con un toque de cultura pop japonesa y uso de colores vibrantes. Sus diseños suelen incluir glitter, unicornios, personajes de Sailor Moon, Dragon Ball, Sakura Card Captor y otros elementos de la cultura pop japonesa.</p>
+        <button>Tatuarme con Laura</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Kitsune Tattoo. Todos los derechos reservados.</p>
+  </footer>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.artista');
+
+  // Observa cuando cada .artista entra en pantalla
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible'); // dispara la transición
+        observer.unobserve(entry.target);         // no la volvemos a animar
+      }
+    });
+  }, { threshold: 0.15 }); // ~15% visible
+
+  // "Stagger": pequeño retraso entre cada card (0ms, 120ms, 240ms, ...)
+  cards.forEach((card, i) => {
+    card.style.setProperty('--reveal-delay', `${i * 120}ms`);
+    observer.observe(card);
+  });
+});
+</script>
+</body>
+</html>

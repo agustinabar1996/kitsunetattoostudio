@@ -1,0 +1,16 @@
+/* ===== Home (portada / banner) ===== */
+.banner {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+.home-copy {
+  text-align: center;
+  padding: 2rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}

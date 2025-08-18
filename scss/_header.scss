@@ -1,0 +1,38 @@
+/* ===== Header ===== */
+header {
+  background-color: $color-header-bg; // negro
+  color: $color-text; // blanco
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  img {
+    max-width: 60px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    color: $color-text; // el título también en blanco
+  }
+
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+
+      li a {
+        text-decoration: none;
+        color: $color-text;
+        font-weight: bold;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $rosa-1; // hover rosa
+        }
+      }
+    }
+  }
+}
