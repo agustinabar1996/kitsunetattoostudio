@@ -1006,3 +1006,14 @@ footer {
     object-fit: cover;
   }
 }
+
+@media (max-width: 768px) {
+  /* Imágenes puestas directo dentro de la card (sin wrapper) */
+  .card > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 16px 0 0;    /* separa el texto de la imagen */
+    border-radius: 16px; /* igual que el resto de imágenes */
+  }
+}
