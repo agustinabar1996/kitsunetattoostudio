@@ -468,3 +468,195 @@ footer {
 @media (max-width: 520px) {
   .social-btn { width: 52px; height: 52px; }
 }
+/* ====== Texto en productos (Merch) ====== */
+.producto {
+  background-color: #fff;  /* fondo blanco de la card */
+  color: #000;             /* texto negro */
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+.producto h3,
+.producto p {
+  color: #000;  /* asegura que los títulos y párrafos sean negros */
+}
+/* ===== Home: grid de cards debajo del banner ===== */
+.home-cards{
+  max-width: 1200px;
+  margin: 24px auto 12px;
+  padding: 0 14px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.home-card{
+  background: #fff;
+  color: #000;                 /* texto negro (el body es blanco) */
+  border-radius: 16px;
+  padding: 18px 18px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.18);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.home-card h3{ 
+  margin: 0 0 6px; 
+  font-size: 1.1rem;
+}
+.home-card p{ 
+  margin: 0; 
+  color: #222;
+}
+
+/* Hover */
+.home-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(0,0,0,.28);
+}
+
+/* Responsive */
+@media (min-width: 700px){
+  .home-cards{ grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1024px){
+  .home-cards{ grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ===== Home: mosaico 2x2 de cards ===== */
+.home-cards{
+  max-width: 1200px;
+  margin: 28px auto 14px;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1fr;   /* móvil: 1 columna */
+  gap: 18px;
+}
+
+.home-card{
+  background: #1f1f1f;         /* gris oscuro */
+  color: #fff;                  /* texto blanco */
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.28);
+  transition: transform .18s ease, box-shadow .18s ease;
+  display: flex;                /* para alinear el botón al final */
+  flex-direction: column;
+  min-height: 180px;            /* más grandes */
+}
+.home-card h3{
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+.home-card p{
+  margin: 0 0 16px;
+  color: #e9e9e9;
+}
+
+/* Botón “Saber más” */
+.btn{
+  display: inline-block;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  align-self: flex-start;       /* arranca a la izquierda */
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.btn--rosa{
+  background: #ff2e86;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(255,46,134,.35);
+}
+.btn--rosa:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(255,46,134,.45);
+  filter: brightness(1.05);
+}
+
+/* Mosaico 2×2 en pantallas medianas/grandes */
+@media (min-width: 900px){
+  .home-cards{
+    grid-template-columns: 1fr 1fr;  /* 2 columnas */
+    gap: 22px;
+  }
+  .home-card{
+    min-height: 220px;               /* un toque más altas en desktop */
+    padding: 24px;
+  }
+}
+/* ===== Home cards: imagen a la derecha ===== */
+.home-card{
+  display: grid;
+  grid-template-columns: 1fr 240px;   /* texto | imagen */
+  align-items: center;                /* centra verticalmente la imagen */
+  gap: 18px;
+}
+
+/* Contenido de texto */
+.home-card__body{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Contenedor de imagen */
+.home-card__media{
+  width: 100%;
+  max-width: 240px;                   /* coincide con la columna derecha */
+  aspect-ratio: 3 / 4;                /* proporcional vertical */
+  border-radius: 18px;
+  overflow: hidden;                   /* recorta la imagen al radio */
+  box-shadow: 0 12px 28px rgba(0,0,0,.35);
+  justify-self: end;                  /* la pega al borde derecho */
+}
+
+/* Imagen */
+.home-card__media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                   /* llena sin deformar */
+  display: block;
+}
+
+/* Responsive: en móvil apilamos imagen debajo del título */
+@media (max-width: 700px){
+  .home-card{
+    grid-template-columns: 1fr;       /* 1 columna */
+  }
+  .home-card__media{
+    max-width: 100%;
+    aspect-ratio: 16 / 9;             /* formato más apaisado en mobile */
+    order: 2;                          /* queda debajo del texto/botón */
+  }
+}
+
+/* ==== Ajuste de separación texto ↔ imagen en las cards de inicio ==== */
+/* Estas reglas sobrescriben a las anteriores porque están al final */
+.home-card{
+  gap: 28px;          /* más aire entre texto e imagen (antes 18px) */
+  padding: 24px;      /* respiración interna general */
+  grid-template-columns: 1fr 260px;  /* imagen un poquito más ancha */
+}
+
+.home-card__body{
+  padding-right: 16px;  /* evita que el texto “toque” la imagen */
+  gap: 14px;            /* un pelín más de espacio entre título/párrafo/botón */
+}
+
+.home-card__media{
+  max-width: 260px;     /* acompaña el cambio de la columna derecha */
+  border-radius: 16px;
+}
+
+/* En mobile quitamos el padding extra de la derecha */
+@media (max-width: 700px){
+  .home-card{
+    grid-template-columns: 1fr;  /* ya lo tenías, lo reafirmamos */
+    gap: 16px;                    /* algo más compacto en móvil */
+    padding: 18px;
+  }
+  .home-card__body{ padding-right: 0; }
+  .home-card__media{ max-width: 100%; }
+}
