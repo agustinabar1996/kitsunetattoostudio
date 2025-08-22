@@ -931,3 +931,51 @@ footer {
 @media (max-width: 640px){
   .contacto__card * { min-width: 0; }
 }
+
+/* ===== Fix cards en móvil (imágenes desfasadas) ===== */
+@media (max-width: 768px) {
+
+  /* Contenedor de cada card (inicio, etc.) */
+  .card {
+    display: block;           /* en móvil apilamos */
+    overflow: hidden;         /* evita desbordes visuales */
+  }
+
+  /* Si tus cards usan grid en desktop: */
+  .home-cards .card,
+  .cards-inicio .card {
+    grid-template-columns: 1fr;   /* de 2 col -> 1 col */
+    align-items: start;
+  }
+
+  /* El contenedor de la imagen dentro de la card */
+  .card__img,
+  .card .img-wrap,
+  .card .image,
+  .card figure {
+    position: static !important;  /* la imagen vuelve al flujo normal */
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 16px 0 0 !important;  /* separa texto de la imagen */
+    border-radius: 16px;
+  }
+
+  /* La etiqueta img como tal */
+  .card__img img,
+  .card .img-wrap img,
+  .card .image img,
+  .card figure img {
+    display: block;
+    width: 100%;
+    height: auto;                 /* que no deforme */
+    object-fit: cover;            /* recorte bonito si tiene altura fija en desktop */
+    border-radius: 16px;
+  }
+
+  /* Opcional: reduce paddings para tarjetas en móvil */
+  .card .card-body,
+  .card .content {
+    padding: 16px;
+  }
+}
