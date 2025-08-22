@@ -6,6 +6,20 @@
 /* Breakpoints */
 /* Mixins */
 /* ===== Base mínima para probar compilación ===== */
+/* ==== Layout base para footer pegado abajo ==== */
+html, body {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
 body {
   background: #111;
   color: #fff;
@@ -383,3 +397,74 @@ img {
 }
 
 /*# sourceMappingURL=main.css.map */
+.contacto{padding:2rem 1rem}
+.contacto__intro{text-align:center;margin-bottom:1.5rem}
+.contacto__grid{display:grid;gap:1rem;grid-template-columns:1fr;max-width:1100px;margin:0 auto}
+.contacto__card{background:#fff;border-radius:16px;padding:1.25rem;box-shadow:0 4px 18px rgba(0,0,0,.08)}
+.contacto__list{list-style:none;padding:0;margin:0 0 1rem}
+.contacto__list li{margin:.4rem 0}
+.contacto__mapa iframe{width:100%;min-height:260px;border:0;border-radius:12px}
+.contacto__form{display:grid;gap:.75rem}
+.contacto__form input,.contacto__form textarea{width:100%;padding:.6rem;border:1px solid #ddd;border-radius:8px}
+.btn{display:inline-block;padding:.7rem 1rem;border-radius:999px;text-decoration:none;border:0;cursor:pointer}
+.btn--primario{background:#ff2e86;color:#fff}
+@media(min-width:900px){.contacto__grid{grid-template-columns:1fr 1fr 1fr}}
+footer {
+  background-color: #000;
+  color: #aaa;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+}
+/* ===== Ajuste de texto en las cards ===== */
+.artista, 
+.producto, 
+.contacto__card {
+  color: #000;  /* texto negro */
+  background-color: #fff; /* fondo blanco  */
+}
+/* ===== Redes de Contacto (debajo de las cards) ===== */
+.contacto__social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin: 22px 0 6px;  /* separa de las cards y del footer */
+}
+
+.social-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;           /* fondo del botón */
+  color: #222;                /* color del ícono (se sobreescribe por marca) */
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(0,0,0,.18);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  will-change: transform;
+}
+
+/* Animación hover/focus */
+.social-btn:hover,
+.social-btn:focus-visible {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 10px 24px rgba(0,0,0,.28);
+  outline: none;
+}
+
+/* Colores de marca */
+.social-btn--wa { background: #25D366; color: #fff; }
+.social-btn--ig { 
+  background: radial-gradient(circle at 30% 110%, #f58529, #dd2a7b 45%, #8134af 65%, #515bd4);
+  color: #fff;
+}
+.social-btn--x  { background: #000; color: #fff; }
+.social-btn--gm { background: #DB4437; color: #fff; }
+
+/* Accesibilidad: tamaño táctil mínimo en móviles */
+@media (max-width: 520px) {
+  .social-btn { width: 52px; height: 52px; }
+}
