@@ -979,3 +979,30 @@ footer {
     padding: 16px;
   }
 }
+
+/* ==== FIX: imágenes de cards en móvil (Inicio) ==== */
+@media (max-width: 700px){
+  .home-card{
+    grid-template-columns: 1fr;   /* apilamos todo en 1 columna */
+    gap: 16px;
+    padding: 18px;
+  }
+
+  /* Contenedor de imagen: que no “empuje” ni desborde */
+  .home-card__media{
+    order: 2;                     /* imagen debajo del texto/botón */
+    width: 100% !important;
+    max-width: 100% !important;
+    aspect-ratio: auto !important; /* por si quedó una relación forzada */
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  /* Imagen: ocupa el ancho, altura auto, sin deformar */
+  .home-card__media img{
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover;
+  }
+}
