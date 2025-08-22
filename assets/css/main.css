@@ -905,3 +905,29 @@ footer {
     justify-self: start;
   }
 }
+
+/* === FIX: inputs del formulario no se salgan de la card === */
+.contacto__card {
+  overflow: hidden;                /* por si algún hijo se pasa por 1-2px */
+}
+
+.contacto__form input,
+.contacto__form textarea,
+.contacto__form button,
+.contacto__form .btn,
+.contacto__form .btn--primario {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;          /* clave: padding/border cuentan dentro del 100% */
+  display: block;                  /* evita inline-gap raros */
+}
+
+/* opcional: separar un poquito cada campo */
+.contacto__form label { display: block; margin: 10px 0 6px; }
+.contacto__form input,
+.contacto__form textarea { margin: 0 0 12px; }
+
+/* en pantallas angostas aseguramos que nada empuje el ancho */
+@media (max-width: 640px){
+  .contacto__card * { min-width: 0; }
+}
