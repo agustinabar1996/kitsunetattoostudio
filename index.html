@@ -6,7 +6,39 @@
 <title>Inicio | Kitsune Tattoo Studio</title>
 <meta name="description" content="Estudio de tatuajes. Conocé a nuestros tatuadores, mirá la galería y nuestra merch. Reservá tu turno online.">
 <link rel="canonical" href="https://TU_DOMINIO_VERCEL/index.html">
-<link rel="stylesheet" href="./assets/css/main.css?v=5">
+<link rel="stylesheet" href="./assets/css/main.css">
+
+<style>
+  /* ==== FIX SOLO PARA LAS CARDS DEL INICIO ==== */
+  .home-card__media,
+  .home-cards figure {
+    margin: 0;
+    line-height: 0;       /* elimina el hueco bajo la img */
+    overflow: hidden;     /* evita desbordes */
+    border-radius: 16px;  /* mismo radio que la card */
+  }
+
+  .home-card__media img,
+  .home-cards figure img {
+    display: block;       /* saca el espacio extra */
+    width: 100%;
+    height: auto;         /* mantiene proporción */
+  }
+
+  @media (max-width: 768px) {
+    .home-card__media,
+    .home-cards figure {
+      aspect-ratio: 16 / 9;
+    }
+    .home-card__media img,
+    .home-cards figure img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+</style>
 <link rel="icon" href="./assets/img/logo.jpg">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kitsune Tattoo Studio">
