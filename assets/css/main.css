@@ -616,7 +616,7 @@ footer {
 .home-card__media img{
   width: 100%;
   height: 100%;
-  object-fit: cover;                   /* llena sin deformar */
+  object-fit: cover;                  
   display: block;
 }
 
@@ -633,7 +633,7 @@ footer {
 }
 
 /* ==== Ajuste de separación texto ↔ imagen en las cards de inicio ==== */
-/* Estas reglas sobrescriben a las anteriores porque están al final */
+
 .home-card{
   gap: 28px;          /* más aire entre texto e imagen (antes 18px) */
   padding: 24px;      /* respiración interna general */
@@ -683,7 +683,7 @@ footer {
 /* Imagen de la card */
 .artista img{
   width: 100%;
-  height: 320px;           /* ajustá si querés más/menos alto */
+  height: 320px;           
   object-fit: cover;
   border-radius: 14px;
   display: block;
@@ -775,7 +775,7 @@ footer {
 }
 
 /* === MERCH: cards oscuras de producto === */
-.productos{ display: grid; gap: 24px; } /* por si ya lo tenías, lo reforzamos */
+.productos{ display: grid; gap: 24px; } 
 
 .producto{
   background: #1f1f1f;         /* gris oscuro */
@@ -792,7 +792,7 @@ footer {
 /* imagen del producto */
 .producto img{
   width: 100%;
-  height: 180px;               /* ajustá si querés más/menos alto */
+  height: 180px;               
   object-fit: cover;
   border-radius: 12px;
   display: block;
@@ -851,7 +851,7 @@ footer {
 /* Imagen */
 .producto img{
   width: 100%;
-  height: 200px;                        /* ajustá 180–240 si lo querés más alto/bajo */
+  height: 200px;                        
   object-fit: cover;
   border-radius: 14px;
   display: block;
@@ -1016,4 +1016,20 @@ footer {
     margin: 16px 0 0;    /* separa el texto de la imagen */
     border-radius: 16px; /* igual que el resto de imágenes */
   }
+}
+
+/* ---- FIX imágenes desfasadas en móvil ---- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;      /* evita el hueco que causa el “desfase” */
+}
+
+.home-card__media img,
+.home-cards figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* hace que la imagen se recorte proporcional y centrada */
+  object-position: center;
+  display: block;
 }
