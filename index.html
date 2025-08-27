@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Inicio | Kitsune Tattoo Studio</title>
 <meta name="description" content="Estudio de tatuajes. Conocé a nuestros tatuadores, mirá la galería y nuestra merch. Reservá tu turno online.">
-<link rel="canonical" href="https://TU_DOMINIO_VERCEL/index.html">
+<link rel="canonical" href="https://kitsunetattoostudio.vercel.app/index.html">
+<meta property="og:url" content="https://kitsunetattoostudio.vercel.app/index.html">
+<meta property="og:image" content="https://kitsunetattoostudio.vercel.app/assets/img/logo.jpg">
 <link rel="stylesheet" href="./assets/css/main.css">
 
 <style>
@@ -13,16 +15,16 @@
   .home-card__media,
   .home-cards figure {
     margin: 0;
-    line-height: 0;      /* elimina el hueco bajo la img */
-    overflow: hidden;    /* evita desbordes */
-    border-radius: 16px; /* mismo radio que la card */
+    line-height: 0;      
+    overflow: hidden;    
+    border-radius: 16px; 
   }
 
   .home-card__media img,
   .home-cards figure img {
-    display: block;   /* saca el espacio extra */
-    width: 100%;      /* ocupa todo */
-    height: auto;     /* mantiene proporción */
+    display: block;   
+    width: 100%;      
+    height: auto;     
   }
 
   /* ===== Mobile ===== */
@@ -42,7 +44,7 @@
   @media (min-width: 769px) {
     .home-card__media,
     .home-cards figure {
-      aspect-ratio: 16 / 9;   /* probá 4/3 si querés más alto */
+      aspect-ratio: 16 / 9;  
       overflow: hidden;
       margin: 0;
       line-height: 0;
@@ -54,7 +56,7 @@
       width: 100%;
       height: 100%;
       display: block;
-      object-fit: cover;      /* recorta y llena */
+      object-fit: cover;      
       object-position: center;
     }
   }
