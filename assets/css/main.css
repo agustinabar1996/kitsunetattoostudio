@@ -1018,36 +1018,25 @@ footer {
   }
 }
 
-/* ---- FIX imágenes desfasadas en móvil ---- */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;      /* evita el hueco que causa el “desfase” */
-}
+/* --- FIX: imágenes de las cards en móvil (evita desfase/CSS layout shift) --- */
+@media (max-width: 768px) {
+  /* El contenedor de la imagen (figure o .home-card__media) reserva altura */
+  .home-card__media,
+  .home-cards figure {
+    position: relative;
+    overflow: hidden;      /* evita que sobresalga la foto */
+    border-radius: 16px;   /* opcional, igual al de las cards */
+    aspect-ratio: 16 / 9;  /* <-- RESERVA ALTURA estable */
+    min-height: 180px;     /* pequeño respaldo si el navegador ignora aspect-ratio */
+  }
 
-/* --- Solo imágenes de las cards (fix móvil) --- */
-.home-card__media,
-.home-cards figure {
-  position: relative;
-  overflow: hidden;       /* evita que la imagen se salga */
-  border-radius: 16px;    /* opcional: mismo redondeo que la card */
+  /* La imagen rellena el contenedor reservado sin deformarse */
+  .home-card__media img,
+  .home-cards figure img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+  }
 }
-
-/* Desktop/tablet: comportamiento normal */
-.home-card__media img,
-.home-cards figure img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-/* ELIMINAR/COMENTAR (era global) */
-/*
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-*/
