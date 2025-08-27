@@ -1040,3 +1040,25 @@ footer {
     object-position: center;
   }
 }
+
+/* ===== FIX DEFINITIVO: imágenes de las CARDS en MÓVIL ===== */
+@media (max-width: 768px) {
+  /* El contenedor de la foto de la card */
+  .home-card__media,
+  .home-cards figure {
+    position: relative;
+    overflow: hidden;        /* que no sobresalga la imagen */
+    border-radius: 16px;     /* opcional, como la card */
+    height: 240px;           /* <-- altura estable sin “saltos” */
+  }
+
+  /* La imagen rellena el contenedor */
+  .home-card__media img,
+  .home-cards figure img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+}
