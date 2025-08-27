@@ -1025,11 +1025,29 @@ img {
   display: block;      /* evita el hueco que causa el “desfase” */
 }
 
+/* --- Solo imágenes de las cards (fix móvil) --- */
+.home-card__media,
+.home-cards figure {
+  position: relative;
+  overflow: hidden;       /* evita que la imagen se salga */
+  border-radius: 16px;    /* opcional: mismo redondeo que la card */
+}
+
+/* Desktop/tablet: comportamiento normal */
 .home-card__media img,
 .home-cards figure img {
   width: 100%;
   height: 100%;
-  object-fit: cover;   /* hace que la imagen se recorte proporcional y centrada */
+  object-fit: cover;
   object-position: center;
   display: block;
 }
+
+/* ELIMINAR/COMENTAR (era global) */
+/*
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+*/
